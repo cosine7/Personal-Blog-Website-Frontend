@@ -1,4 +1,43 @@
 # CSE330
-REPLACE-THIS-TEXT-WITH-YOUR-NAME-STUDENT-ID-AND-GITHUB-USERNAME
 
-REPLACE-THIS-TEXT-WITH-YOUR-PARTNERS-NAME-STUDENT-ID-AND-GITHUB-USERNAME
+Name: ChenXiao Liu
+
+Student ID: 499688
+
+GitHub Username: cosine7
+
+# Project Idea
+
+A personal tech blog website
+
+# Rubric (100 points)
+
+## Creating a rubric on time (5 points)
+
+## Languages/Frameworks used (40 points)
+
+- 10 - Learned/Used TypeScript as frontend programming language
+- 10 - Learned/Used Vue3 as frontend framework
+- 10 - Learned/Used express.js as backend framework
+- 10 - Learned/Used MongoDB database
+
+## Styling (5 points)
+
+- 5 - Learned/Used Less as css preprocessor
+
+## Functionality (35 points)
+
+- 10 - Only administrator could sign in/sign out. Guests could view blogs
+- 10 - Only administrator could write/delete/edit blogs
+- 10 Database contains administrator and blogs; a blog should contain a title, content, creation time, and last edit time
+- 5 Guests could comment blogs
+
+## Best Practices (5 points)
+
+- 3 - Code is readable and well formatted
+- 2 - All pages pass the html validator
+
+## Creative Portion (10 points)
+
+- 5 - website support markdown editor
+- 5 - website allow administrator to upload videos
