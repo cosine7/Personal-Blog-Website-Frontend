@@ -40,4 +40,4 @@ A personal tech blog website
 ## Creative Portion (10 points)
 
 - 5 - website support markdown editor
-- 5 - website allow administrator to upload videos
+- 5 - website support dark mode
