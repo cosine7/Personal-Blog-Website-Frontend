@@ -30,7 +30,7 @@ A personal tech blog website
 - 10 - Only administrator could sign in/sign out. Guests could view blogs
 - 10 - Only administrator could write/delete/edit blogs
 - 10 Database contains administrator and blogs; a blog should contain a title, content, creation time, and last edit time
-- 5 Guests could comment blogs
+- 5 Administrator could upload videos
 
 ## Best Practices (5 points)
 
