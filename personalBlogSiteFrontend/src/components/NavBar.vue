@@ -8,7 +8,9 @@
     <router-link class="nav-link" to="/">Blogs</router-link>
     <router-link class="nav-link" to="/login">Login</router-link>
   </nav>
-  <router-view></router-view>
+  <Suspense>
+    <router-view></router-view>
+  </Suspense>
 </template>
 
 <style scoped lang="less">

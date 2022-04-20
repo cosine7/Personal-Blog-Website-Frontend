@@ -1,5 +1,16 @@
 <script setup lang="ts">
-const categories = ['All', 'JavaScript'];
+import axios from 'axios';
+
+let categories: string[];
+
+try {
+  const { data } = await axios.get('/api/category');
+  categories = data;
+} catch (error) {
+  console.log(error);
+}
+
+// const categories = ['All', 'JavaScript'];
 </script>
 
 <template>
