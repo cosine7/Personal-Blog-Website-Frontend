@@ -17,6 +17,14 @@ html, body, #app {
   height: 100%;
 }
 
+.theme-light {
+  --nav-background-color: white;
+}
+
+.theme-dark {
+  --nav-background-color: #323233;
+}
+
 #app {
   display: flex;
   flex-direction: column;

@@ -1,8 +1,6 @@
 import Mongoose from 'mongoose';
 
-const { model, Schema } = Mongoose;
-
-export default model('Category', new Schema({
+export default Mongoose.model('Category', new Mongoose.Schema({
   name: {
     type: String,
     required: true,

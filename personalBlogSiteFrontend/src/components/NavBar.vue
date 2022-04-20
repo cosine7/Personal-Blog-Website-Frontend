@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import ThemeSwitchButtonVue from './ThemeSwitchButton.vue';
 </script>
 
 <template>
@@ -7,6 +7,7 @@
     <a href="javascript:;" class="iconfont icon-blog"></a>
     <router-link class="nav-link" to="/">Blogs</router-link>
     <router-link class="nav-link" to="/login">Login</router-link>
+    <ThemeSwitchButtonVue />
   </nav>
   <Suspense>
     <router-view></router-view>
@@ -23,6 +24,7 @@ nav {
   align-items: center;
   padding: 0 30px;
   box-sizing: border-box;
+  background-color: var(--nav-background-color);
 
   :first-child {
     color: #409EFF;

@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import axios from 'axios';
 
-let categories: string[];
+interface category {
+  name: String;
+}
+
+let categories: category[];
 
 try {
   const { data } = await axios.get('/api/category');
-  categories = data;
+  categories = [{ name: 'All' }, ...data];
 } catch (error) {
   console.log(error);
 }
-
-// const categories = ['All', 'JavaScript'];
 </script>
 
 <template>
@@ -19,11 +21,10 @@ try {
       <h1>Category</h1>
       <router-link v-for="category in categories"
       class="category-item"
-      :key="category"
-      :to="`/blogs/${category}`">
-        {{category}}
+      :key="category.name"
+      :to="`/blogs/${category.name}`">
+        {{category.name}}
       </router-link>
-      <!-- <router-link class="nav-link" to="/blogs/js">js</router-link> -->
     </div>
     <router-view></router-view>
   </div>
