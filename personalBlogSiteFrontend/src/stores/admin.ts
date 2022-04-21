@@ -5,11 +5,7 @@ import axios from 'axios';
 export default defineStore('admin', () => {
   const isLoggedIn = ref(false);
 
-  async function login() {
-
-  }
-
-  async function checkLoginStatus() {
+  async function getLoginStatus() {
     try {
       await axios.get('api/loginStatus');
       isLoggedIn.value = true;
@@ -17,6 +13,9 @@ export default defineStore('admin', () => {
       isLoggedIn.value = false;
     }
   }
-  checkLoginStatus();
-  return { isLoggedIn, login, checkLoginStatus };
+
+  async function login(username: String, password: String) {
+    console.log(username, password);
+  }
+  return { isLoggedIn, login, getLoginStatus };
 });

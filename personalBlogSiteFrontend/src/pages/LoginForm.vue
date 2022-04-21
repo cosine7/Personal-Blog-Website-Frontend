@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import axios from 'axios';
 import { ref } from 'vue';
 import useAdminStore from '../stores/admin';
 
-const adminss = useAdminStore();
-// const admin = reactive({
-//   username: '',
-//   password: '',
-// });
+const admin = useAdminStore();
+
 const username = ref('');
 const password = ref('');
 // console.log(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
@@ -17,7 +13,7 @@ const password = ref('');
 </script>
 
 <template>
-  <form>
+  <form @submit.prevent="admin.login(username, password)">
     <h1>Login</h1>
     <input type="text" id="username" required v-model="username">
     <label for="username">Username</label>
