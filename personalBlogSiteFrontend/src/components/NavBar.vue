@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import ThemeSwitchButtonVue from './ThemeSwitchButton.vue';
+import useAdminStore from '../stores/admin';
+
+const admin = useAdminStore();
 </script>
 
 <template>
   <nav>
     <a href="javascript:;" class="iconfont icon-blog"></a>
     <router-link class="nav-link" to="/">Blogs</router-link>
-    <router-link class="nav-link" to="/login">Login</router-link>
+    <router-link v-if="!admin.isLoggedIn" class="nav-link" to="/login">Login</router-link>
     <ThemeSwitchButtonVue />
   </nav>
   <Suspense>

@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import axios from 'axios';
-import { reactive } from 'vue';
+import { ref } from 'vue';
+import useAdminStore from '../stores/admin';
 
-const admin = reactive({
-  username: '',
-  password: '',
-});
+const adminss = useAdminStore();
+// const admin = reactive({
+//   username: '',
+//   password: '',
+// });
+const username = ref('');
+const password = ref('');
 // console.log(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
 //     const newColorScheme = event.matches ? "dark" : "light";
@@ -15,11 +19,11 @@ const admin = reactive({
 <template>
   <form>
     <h1>Login</h1>
-    <input type="text" id="username" required v-model="admin.username">
+    <input type="text" id="username" required v-model="username">
     <label for="username">Username</label>
-    <input type="password" id="password" required v-model="admin.password">
+    <input type="password" id="password" required v-model="password">
     <label for="username">Password</label>
-    <button :disabled="admin.username === '' || admin.password === ''">Login</button>
+    <button :disabled="username === '' || password === ''">Login</button>
   </form>
 </template>
 
