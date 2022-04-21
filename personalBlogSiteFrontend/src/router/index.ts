@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import BlogOverview from '../pages/BlogOverview.vue';
 import BlogPreview from '../pages/BlogPreview.vue';
+import LoginForm from '../pages/LoginForm.vue';
 
 export default createRouter({
   history: createWebHistory(),
@@ -21,7 +22,7 @@ export default createRouter({
     },
     {
       path: '/login',
-      component: BlogOverview,
+      component: LoginForm,
     },
   ],
 });

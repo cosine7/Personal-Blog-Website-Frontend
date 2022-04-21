@@ -19,10 +19,24 @@ html, body, #app {
 
 .theme-light {
   --nav-background-color: white;
+  --sidebar-background-color: white;
+  --content-background-color: white;
+  --divider-color: #DCDFE6;
+  --text-color-primary: black;
+  --text-color-secondary: #4E4E4E;
+  --nav-item-color: #8CC4FD;
+  --nav-item-color-active: #1989FA;
 }
 
 .theme-dark {
   --nav-background-color: #323233;
+  --sidebar-background-color: #252526;
+  --content-background-color: #1E1E1E;
+  --divider-color: #464646;
+  --text-color-primary: #CCCCCC;
+  --text-color-secondary: #969696;
+  --nav-item-color: #255C8B;
+  --nav-item-color-active: #2D9EFA;
 }
 
 #app {

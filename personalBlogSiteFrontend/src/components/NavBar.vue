@@ -9,16 +9,20 @@ import ThemeSwitchButtonVue from './ThemeSwitchButton.vue';
     <router-link class="nav-link" to="/login">Login</router-link>
     <ThemeSwitchButtonVue />
   </nav>
-  <Suspense>
-    <router-view></router-view>
-  </Suspense>
+  <router-view v-slot="{ Component }">
+    <KeepAlive>
+      <Suspense>
+        <component :is="Component" />
+      </Suspense>
+    </KeepAlive>
+  </router-view>
 </template>
 
 <style scoped lang="less">
 nav {
   height: 59px;
   width: 100%;
-  border-bottom: 1px solid #DCDFE6;
+  border-bottom: 1px solid var(--divider-color);
   position: relative;
   display: flex;
   align-items: center;
@@ -38,18 +42,18 @@ nav {
   display: inline-block;
   height: 60px;
   line-height: 60px;
-  color: #8CC4FD;
+  color: var(--nav-item-color);
   text-decoration: none;
   box-sizing: border-box;
   margin-right: 40px;
 
   &:hover {
-    color: #1989FA;
+    color: var(--nav-item-color-active);
   }
 }
 
 .router-link-active {
   border-bottom: #409EFF solid 2px;
-  color: #1989FA;
+  color: var(--nav-item-color-active);
 }
 </style>

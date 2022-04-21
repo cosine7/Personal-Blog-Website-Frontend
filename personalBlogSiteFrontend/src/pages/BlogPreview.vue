@@ -12,6 +12,6 @@ const route = useRoute();
 <style lang="less">
 .some-wrapper {
     flex: 1;
-    // background-color: antiquewhite;
+    background-color: var(--content-background-color);
 }
 </style>

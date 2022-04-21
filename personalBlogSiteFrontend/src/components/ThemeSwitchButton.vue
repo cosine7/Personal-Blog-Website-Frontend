@@ -27,7 +27,7 @@ input {
   }
 
   &:checked + span {
-    background-color: #1989FA;
+    background-color: #409EFF;
   }
 }
 
@@ -48,7 +48,7 @@ span {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: gray;
+  background-color: #DCDFE6;
   transition: all .4s;
 
   &::before {
@@ -58,7 +58,7 @@ span {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: black;
+    background-color: white;
     left: 5px;
     transition: all .4s;
   }

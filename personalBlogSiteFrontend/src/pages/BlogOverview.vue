@@ -40,17 +40,19 @@ try {
   width: 300px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #DCDFE6;
+  border-right: 1px solid var(--divider-color);
   padding: 30px;
   overflow-y: scroll;
+  background-color: var(--sidebar-background-color);
 
   h1 {
     margin-bottom: 10px;
+    color: var(--text-color-primary);
   }
 }
 .category-item {
   display: block;
-  color: #4E4E4E;
+  color: var(--text-color-secondary);
   text-decoration: none;
   font-size: 24px;
   margin: 8px 0;
