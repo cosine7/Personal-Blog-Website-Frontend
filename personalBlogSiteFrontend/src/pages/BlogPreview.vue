@@ -9,7 +9,7 @@ const route = useRoute();
   <div class="some-wrapper">{{route.params}}</div>
 </template>
 
-<style lang="less">
+<style scoped lang="less">
 .some-wrapper {
     flex: 1;
     background-color: var(--content-background-color);

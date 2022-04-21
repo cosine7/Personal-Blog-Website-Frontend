@@ -1,8 +1,16 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import NavBar from './components/NavBar.vue';
+import FunnyStart from './components/FunnyStart.vue';
+
+const showFunnyStart = ref(true);
+setTimeout(() => {
+  showFunnyStart.value = false;
+}, 5000);
 </script>
 
 <template>
+  <FunnyStart v-if="showFunnyStart" />
   <NavBar />
 </template>
 

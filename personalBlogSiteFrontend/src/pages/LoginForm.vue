@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import useAdminStore from '../stores/admin';
 
 const admin = useAdminStore();
-
 const username = ref('');
 const password = ref('');
 // console.log(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
