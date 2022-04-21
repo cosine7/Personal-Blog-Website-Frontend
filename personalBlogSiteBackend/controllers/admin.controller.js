@@ -13,7 +13,6 @@ export default class {
 
   static async login(request, response) {
     try {
-      console.log('cookies', request.cookies);
       await Service.authenticate(request.body);
       response.cookie(
         'accessToken',
@@ -27,13 +26,14 @@ export default class {
   }
 
   static async loginStatus(request, response) {
+    console.log('cookies', request.cookies);
     const { accessToken } = request.cookies;
     if (!accessToken) {
-      response.sendStatus(404);
+      response.sendStatus(403);
       return;
     }
     jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, err => {
-      response.sendStatus(err ? 404 : 200);
+      response.sendStatus(err ? 402 : 200);
     });
   }
 }

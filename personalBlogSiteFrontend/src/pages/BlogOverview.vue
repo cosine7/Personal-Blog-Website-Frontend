@@ -8,7 +8,7 @@ interface category {
 let categories: category[];
 
 try {
-  const { data } = await axios.get('/api/category');
+  const { data } = await axios.get('/category');
   categories = [{ name: 'All' }, ...data];
 } catch (error) {
   console.log(error);

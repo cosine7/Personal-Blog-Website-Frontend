@@ -7,7 +7,7 @@ export default defineStore('admin', () => {
 
   async function getLoginStatus() {
     try {
-      await axios.get('api/loginStatus');
+      await axios.get('/loginStatus');
       isLoggedIn.value = true;
     } catch {
       isLoggedIn.value = false;
@@ -15,7 +15,12 @@ export default defineStore('admin', () => {
   }
 
   async function login(username: String, password: String) {
-    console.log(username, password);
+    try {
+      await axios.post('/login', { username, password });
+      isLoggedIn.value = true;
+    } catch {
+      window.alert('Invalid Username or Password');
+    }
   }
   return { isLoggedIn, login, getLoginStatus };
 });
