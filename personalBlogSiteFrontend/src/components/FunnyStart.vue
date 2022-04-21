@@ -23,7 +23,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation-fill-mode: forwards;
 }
 h1, img {
   background: linear-gradient(90deg, red, orange, yellow, green, blue, aqua, purple);

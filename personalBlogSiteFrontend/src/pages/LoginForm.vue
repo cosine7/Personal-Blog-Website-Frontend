@@ -5,6 +5,7 @@ import useAdminStore from '../stores/admin';
 const admin = useAdminStore();
 const username = ref('');
 const password = ref('');
+const showPassword = ref(false);
 // console.log(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
 //     const newColorScheme = event.matches ? "dark" : "light";
@@ -12,23 +13,39 @@ const password = ref('');
 </script>
 
 <template>
-  <form @submit.prevent="admin.login(username, password)">
-    <h1>Login</h1>
-    <input type="text" id="username" required v-model="username">
-    <label for="username">Username</label>
-    <input type="password" id="password" required v-model="password">
-    <label for="username">Password</label>
-    <button :disabled="username === '' || password === ''">Login</button>
-  </form>
+  <div class="container">
+    <form @submit.prevent="admin.login(username, password)">
+      <h1>Login</h1>
+      <div class="wrapper">
+        <input type="text" id="username" required v-model="username">
+        <label for="username">Username</label>
+      </div>
+      <div class="wrapper">
+        <input :type="showPassword ? 'text' : 'password'" id="password" required v-model="password">
+        <label for="username">Password</label>
+        <i @click="showPassword = !showPassword"
+        :class="`iconfont icon-password-${showPassword ? 'show' : 'hidden'}`"></i>
+      </div>
+      <button :disabled="username === '' || password === ''">Login</button>
+    </form>
+  </div>
 </template>
 
 <style scoped lang="less">
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sidebar-background-color);
+}
+
 form {
   display: flex;
   flex-direction: column;
   width: max-content;
   height: max-content;
-  margin: 50px auto;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .25);
   padding: 40px;
@@ -38,6 +55,11 @@ h1 {
   margin-bottom: 25px;
   text-align: center;
   user-select: none;
+}
+
+.wrapper {
+  position: relative;
+  margin-bottom: 25px;
 }
 
 input {
@@ -64,19 +86,15 @@ input {
 
   &:valid + label,
   &:focus + label {
-    top: -50px;
+    top: 0;
     font-size: 14px;
   }
 }
 
 label {
-  display: flex;
-  align-items: center;
-  height: 20px;
-  width: min-content;
-  position: relative;
+  position: absolute;
   color: #C0C4CC;
-  top: -25px;
+  top: 50%;
   padding: 0 3px;
   left: 17px;
   transform: translateY(-50%);
@@ -84,6 +102,24 @@ label {
   pointer-events: none;
   transition: all .3s;
   background-color: white;
+}
+
+i {
+  position: absolute;
+  right: 10px;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #C0C4CC;
+  cursor: pointer;
+
+  &:hover {
+    color: #409EFF;
+  }
+}
+
+#password {
+  padding-right: 38px;
 }
 
 button {
@@ -97,7 +133,7 @@ button {
 
   &:disabled {
     background-color: #A0CFFF;
-    cursor: default;
+    cursor: not-allowed;
   }
 }
 </style>
