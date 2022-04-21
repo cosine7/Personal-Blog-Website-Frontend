@@ -6,6 +6,10 @@ const admin = reactive({
   username: '',
   password: '',
 });
+// console.log(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+// window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+//     const newColorScheme = event.matches ? "dark" : "light";
+// });
 </script>
 
 <template>
@@ -34,6 +38,7 @@ form {
 h1 {
   margin-bottom: 25px;
   text-align: center;
+  user-select: none;
 }
 
 input {
@@ -93,6 +98,7 @@ button {
 
   &:disabled {
     background-color: #A0CFFF;
+    cursor: default;
   }
 }
 </style>

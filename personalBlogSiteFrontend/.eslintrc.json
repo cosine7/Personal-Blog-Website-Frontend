@@ -16,7 +16,10 @@
         "vue",
         "@typescript-eslint"
     ],
-    "ignorePatterns": "vite.config.ts",
+    "ignorePatterns": [
+        "vite.config.ts",
+        "env.d.ts"
+    ],
     "rules": {
         "import/no-unresolved": "off",
         "import/extensions": "off",

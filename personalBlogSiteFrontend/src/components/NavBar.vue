@@ -9,13 +9,13 @@ import ThemeSwitchButtonVue from './ThemeSwitchButton.vue';
     <router-link class="nav-link" to="/login">Login</router-link>
     <ThemeSwitchButtonVue />
   </nav>
-  <router-view v-slot="{ Component }">
-    <KeepAlive>
-      <Suspense>
+  <Suspense>
+    <router-view v-slot="{ Component }">
+      <KeepAlive>
         <component :is="Component" />
-      </Suspense>
-    </KeepAlive>
-  </router-view>
+      </KeepAlive>
+    </router-view>
+  </Suspense>
 </template>
 
 <style scoped lang="less">
