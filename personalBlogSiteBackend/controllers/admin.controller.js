@@ -29,11 +29,11 @@ export default class {
     console.log('cookies', request.cookies);
     const { accessToken } = request.cookies;
     if (!accessToken) {
-      response.sendStatus(403);
+      response.sendStatus(401);
       return;
     }
     jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, err => {
-      response.sendStatus(err ? 402 : 200);
+      response.sendStatus(err ? 401 : 200);
     });
   }
 }
