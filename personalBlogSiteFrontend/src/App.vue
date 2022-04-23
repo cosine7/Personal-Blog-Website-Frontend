@@ -56,7 +56,7 @@ html, body, #app {
 
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('./assets/iconfont.ttf?t=1650686411637') format('truetype');
+  src: url('./assets/iconfont.ttf?t=1650688658114') format('truetype');
 }
 
 .iconfont {
@@ -72,6 +72,10 @@ html, body, #app {
 
 .icon-add:before {
   content: "\e767";
+}
+
+.icon-close:before {
+  content: "\e69a";
 }
 
 .icon-password-hidden:before {
