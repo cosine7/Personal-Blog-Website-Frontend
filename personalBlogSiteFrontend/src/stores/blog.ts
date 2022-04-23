@@ -34,9 +34,9 @@ export default defineStore('blog', () => {
       if (!(id in blogs)) {
         blogs[id] = <Blog[]>[];
       }
-      blogs[id].push(...data.blogs);
+      blogs[id].push(...data);
     } catch {
-      window.alert('Unable to Add Blog');
+      window.alert('Unable to Fetch Blogs');
     }
   }
   return {

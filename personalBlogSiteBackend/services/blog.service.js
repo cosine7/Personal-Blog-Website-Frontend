@@ -8,15 +8,9 @@ export default class {
 
   static async getAll(_id) {
     if (_id === 'all') {
-      return {
-        name: _id,
-        blogs: await Blog.find(),
-      };
+      return Blog.find();
     }
-    const category = await Category.findOne({ _id });
-    return {
-      name: category.name,
-      blogs: await Blog.find({ category: category.name }),
-    };
+    const category = await Category.findOne({ _id }).select('name');
+    return Blog.find({ category: category.name });
   }
 }

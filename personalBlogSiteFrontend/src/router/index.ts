@@ -20,9 +20,6 @@ export default createRouter({
         {
           path: 'blogs/:category',
           component: BlogPreview,
-          meta: {
-            reuse: false,
-          },
         },
       ],
     },

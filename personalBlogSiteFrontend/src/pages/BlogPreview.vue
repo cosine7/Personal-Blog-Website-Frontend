@@ -11,7 +11,6 @@ blogStore.getBlogs(category);
 
 <template>
   <div class="wrapper">
-    <div>{{category}}</div>
     <div v-for="blog in blogStore.blogs[category]"
       :key="blog._id"
       v-html="marked.parse(blog.content)">
