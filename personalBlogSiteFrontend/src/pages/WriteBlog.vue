@@ -32,15 +32,20 @@ function togglePopover() {
       <mavon-editor v-model="content" />
     </div>
   </form>
-  <teleport to="body">
-    <div v-show="showAddCategoryPopover" class="popover" @click="togglePopover">
-      <form @click.stop>
-        <i @click="togglePopover" class="iconfont icon-close"></i>
-        <input type="text" placeholder="Category Name">
-        <button>Add</button>
-      </form>
-    </div>
-  </teleport>
+  <Teleport to="body">
+      <Transition name="bounce">
+        <div v-show="showAddCategoryPopover" class="popover" @click="togglePopover">
+          <form @click.stop>
+            <i @click="togglePopover" class="iconfont icon-close"></i>
+            <div>
+              <input required id="category-name" type="text">
+              <label for="category-name">Category Name</label>
+            </div>
+            <button>Add</button>
+          </form>
+        </div>
+      </Transition>
+  </Teleport>
 </template>
 
 <style scoped lang="less">
@@ -112,6 +117,38 @@ select {
   border-radius: 0;
 }
 
+.bounce-enter-active {
+  animation: nothing 0.2s;
+}
+.bounce-leave-active {
+  animation: nothing 0.2s reverse;
+}
+
+.bounce-enter-active form {
+  animation: bounce-in 0.2s;
+}
+.bounce-leave-active form {
+  animation: bounce-in 0.2s reverse;
+}
+
+@keyframes nothing {
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .popover {
   background-color: rgba(0, 0, 0, .4);
   position: absolute;
@@ -131,6 +168,12 @@ select {
     border-radius: 15px;
     padding: 40px;
     position: relative;
+    box-shadow: 0 0 60px rgba(0, 0, 0, .25);
+
+    div {
+      display: inline-block;
+      position: relative;
+    }
 
     input, button {
       height: 50px;
@@ -152,6 +195,28 @@ select {
       &:focus {
         border-color: #409EFF;
       }
+
+      &:focus + label {
+        color: #409EFF;
+      }
+
+      &:focus + label,
+      &:valid + label {
+        top: 0;
+        font-size: 14px;
+      }
+    }
+
+    label {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 17px;
+      padding: 0 3px;
+      background-color: white;
+      color: #C0C4CC;
+      transition: all 0.2s;
+      font-size: 18px;
     }
 
     button {

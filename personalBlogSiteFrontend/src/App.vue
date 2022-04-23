@@ -23,6 +23,8 @@ setTimeout(() => {
 html, body, #app {
   width: 100%;
   height: 100%;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,
+  "Apple Color Emoji","Segoe UI Emoji";
 }
 
 .theme-light {
@@ -50,8 +52,6 @@ html, body, #app {
 #app {
   display: flex;
   flex-direction: column;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,
-  "Apple Color Emoji","Segoe UI Emoji";
 }
 
 @font-face {
