@@ -22,5 +22,16 @@ export default defineStore('admin', () => {
       window.alert('Invalid Username or Password');
     }
   }
-  return { isLoggedIn, login, getLoginStatus };
+
+  async function logout() {
+    try {
+      await axios.post('/logout');
+      isLoggedIn.value = false;
+    } catch {
+      window.alert('Internal Server Error');
+    }
+  }
+  return {
+    isLoggedIn, login, getLoginStatus, logout,
+  };
 });

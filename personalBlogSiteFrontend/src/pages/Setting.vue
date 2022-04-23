@@ -36,9 +36,8 @@ aside {
   font-size: 20px;
   color: #57606A;
   cursor: pointer;
-  padding: 5px;
+  padding: 10px;
   box-sizing: border-box;
-  // border-left: 4px solid transparent;
   border-radius: 8px;
   position: relative;
 

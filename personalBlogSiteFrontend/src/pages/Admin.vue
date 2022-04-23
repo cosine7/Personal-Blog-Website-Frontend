@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import useAdminStore from '../stores/admin';
+
+const admin = useAdminStore();
+
 </script>
 
 <template>
   <div class="wrapper">
-    <button>Logout</button>
+    <button @click="admin.logout">Logout</button>
   </div>
 </template>
 

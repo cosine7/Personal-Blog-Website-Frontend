@@ -26,7 +26,6 @@ export default class {
   }
 
   static async loginStatus(request, response) {
-    console.log('cookies', request.cookies);
     const { accessToken } = request.cookies;
     if (!accessToken) {
       response.sendStatus(401);
@@ -35,5 +34,14 @@ export default class {
     jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, err => {
       response.sendStatus(err ? 401 : 200);
     });
+  }
+
+  static async logout(request, response) {
+    try {
+      await response.clearCookie('accessToken');
+      response.sendStatus(200);
+    } catch (error) {
+      response.sendStatus(500);
+    }
   }
 }
