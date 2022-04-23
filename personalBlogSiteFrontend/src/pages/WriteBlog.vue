@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import useCategoryStore from '../stores/category';
+import useBlogStore from '../stores/blog';
 
 const categoryStore = useCategoryStore();
+const blogStore = useBlogStore();
 const content = ref('');
 const showAddCategoryPopover = ref(false);
 const newCategory = ref('');
+const selectedCategory = ref('');
 
 function togglePopover() {
   showAddCategoryPopover.value = !showAddCategoryPopover.value;
@@ -19,9 +22,9 @@ function addCategory() {
 </script>
 
 <template>
-  <form class="wrapper">
+  <form class="wrapper" @submit.prevent="blogStore.addBlog(content, selectedCategory)">
     <div class="option-wrapper">
-      <select required>
+      <select required v-model="selectedCategory">
         <option value="" disabled selected>Select Category</option>
         <option v-for="item in categoryStore.items"
           :key="item._id"
