@@ -5,12 +5,17 @@ import Mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import categoryRouter from './routes/category.route.js';
 import adminRouter from './routes/admin.route.js';
+import blogRouter from './routes/blog.route.js';
+import authenticateToken from './middlewares/authenticateToken.js';
 
 const app = express();
-app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(categoryRouter);
-app.use(adminRouter);
+app
+  .use(cookieParser())
+  .use(bodyParser.json())
+  .use(categoryRouter)
+  .use(adminRouter)
+  .use('/blog', authenticateToken)
+  .use('/blog', blogRouter);
 
 try {
   await Mongoose.connect(process.env.MONGODB_CONNECTION_LINK);
