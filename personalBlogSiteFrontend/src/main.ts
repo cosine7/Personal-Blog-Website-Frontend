@@ -1,4 +1,4 @@
-import { createApp } from 'vue';
+import { createApp, markRaw } from 'vue';
 import { createPinia } from 'pinia';
 import axios from 'axios';
 import mavonEditor from 'mavon-editor';
@@ -9,7 +9,11 @@ import 'mavon-editor/dist/css/index.css';
 
 axios.defaults.baseURL = 'http://localhost:3000/api';
 const app = createApp(App);
-app.use(createPinia());
+const pinia = createPinia();
+pinia.use(({ store }) => {
+  store.$router = markRaw(router);
+});
+app.use(pinia);
 await useAdminStore().getLoginStatus();
 
 app
