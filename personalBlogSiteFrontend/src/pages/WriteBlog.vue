@@ -5,9 +5,16 @@ import useCategoryStore from '../stores/category';
 const categoryStore = useCategoryStore();
 const content = ref('');
 const showAddCategoryPopover = ref(false);
+const newCategory = ref('');
 
 function togglePopover() {
   showAddCategoryPopover.value = !showAddCategoryPopover.value;
+}
+
+function addCategory() {
+  categoryStore.addCategory(newCategory.value);
+  togglePopover();
+  newCategory.value = '';
 }
 </script>
 
@@ -17,7 +24,7 @@ function togglePopover() {
       <select required>
         <option value="" disabled selected>Select Category</option>
         <option v-for="item in categoryStore.items"
-          :key="item.name"
+          :key="item._id"
           :value="item.name">
           {{item.name}}
         </option>
@@ -35,10 +42,10 @@ function togglePopover() {
   <Teleport to="body">
       <Transition name="bounce">
         <div v-show="showAddCategoryPopover" class="popover" @click="togglePopover">
-          <form @click.stop>
+          <form @submit.prevent="addCategory" @click.stop>
             <i @click="togglePopover" class="iconfont icon-close"></i>
             <div>
-              <input required id="category-name" type="text">
+              <input v-model="newCategory" required id="category-name" type="text">
               <label for="category-name">Category Name</label>
             </div>
             <button>Add</button>

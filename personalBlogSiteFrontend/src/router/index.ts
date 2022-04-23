@@ -15,7 +15,7 @@ export default createRouter({
       children: [
         {
           path: '',
-          redirect: '/blogs/All',
+          redirect: '/blogs/all',
         },
         {
           path: 'blogs/:category',

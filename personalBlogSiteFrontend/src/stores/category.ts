@@ -3,7 +3,11 @@ import { reactive } from 'vue';
 import axios from 'axios';
 
 export default defineStore('category', () => {
-  const items = reactive([{ name: 'All' }]);
+  interface Category {
+    _id: string,
+    name: string,
+  }
+  const items = reactive(<Category[]>[]);
 
   async function getCategory() {
     try {
@@ -15,10 +19,9 @@ export default defineStore('category', () => {
   }
 
   async function addCategory(category: string) {
-    const item = { name: category };
     try {
-      await axios.post('/category', item);
-      items.push(item);
+      const { data } = await axios.post('/category', { name: category });
+      items.push(data);
     } catch {
       window.alert('Unable to Add Categories');
     }

@@ -8,10 +8,11 @@ const categoryStore = useCategoryStore();
   <div class="wrapper">
     <div class="category">
       <h1>Category</h1>
+      <router-link class="category-item" key="all" to="/blogs/all">All</router-link>
       <router-link v-for="category in categoryStore.items"
       class="category-item"
-      :key="category.name"
-      :to="`/blogs/${category.name}`">
+      :key="category._id"
+      :to="`/blogs/${category._id}`">
         {{category.name}}
       </router-link>
     </div>

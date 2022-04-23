@@ -3,8 +3,7 @@ import Service from '../services/category.service.js';
 export default class {
   static async addOne(request, response) {
     try {
-      await Service.addOne(request.body);
-      response.sendStatus(201);
+      response.status(201).json(await Service.addOne(request.body));
     } catch (error) {
       response.sendStatus(400);
     }
