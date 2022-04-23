@@ -4,8 +4,9 @@ import axios from 'axios';
 
 export default defineStore('blog', () => {
   interface Blog {
+    _id: string,
     category: string,
-    content: String,
+    content: string,
     createdAt: string,
     updatedAt: String,
     __v: Number
@@ -27,13 +28,13 @@ export default defineStore('blog', () => {
     }
   }
 
-  async function getBlogs(category: string) {
+  async function getBlogs(id: string) {
     try {
-      const { data } = await axios.get(`/blog/${category}`);
-      if (!(category in blogs)) {
-        blogs[category] = <Blog[]>[];
+      const { data } = await axios.get(`/blog/${id}`);
+      if (!(id in blogs)) {
+        blogs[id] = <Blog[]>[];
       }
-      blogs[category].push(...data);
+      blogs[id].push(...data.blogs);
     } catch {
       window.alert('Unable to Add Blog');
     }

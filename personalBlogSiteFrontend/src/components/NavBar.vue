@@ -14,13 +14,11 @@ const admin = useAdminStore();
     <router-link v-if="admin.isLoggedIn" class="nav-link" to="/setting">Setting</router-link>
     <ThemeSwitchButtonVue />
   </nav>
-  <Suspense>
-    <router-view v-slot="{ Component }">
-      <KeepAlive>
-        <component :is="Component" />
-      </KeepAlive>
-    </router-view>
-  </Suspense>
+  <router-view v-slot="{ Component }">
+    <KeepAlive>
+      <component :is="Component" />
+    </KeepAlive>
+  </router-view>
 </template>
 
 <style scoped lang="less">

@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router';
 import useCategoryStore from '../stores/category';
 
 const categoryStore = useCategoryStore();
+const route = useRoute();
 </script>
 
 <template>
@@ -10,13 +12,17 @@ const categoryStore = useCategoryStore();
       <h1>Category</h1>
       <router-link class="category-item" key="all" to="/blogs/all">All</router-link>
       <router-link v-for="category in categoryStore.items"
-      class="category-item"
-      :key="category._id"
-      :to="`/blogs/${category._id}`">
+        class="category-item"
+        :key="category._id"
+        :to="`/blogs/${category._id}`">
         {{category.name}}
       </router-link>
     </div>
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <KeepAlive>
+        <component :key="route.path" :is="Component" />
+      </KeepAlive>
+    </router-view>
   </div>
 </template>
 
