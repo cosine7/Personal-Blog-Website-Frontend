@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { reactive } from 'vue';
 import axios from 'axios';
+import type { Router } from 'vue-router';
 
 export default defineStore('blog', () => {
   interface Blog {
@@ -14,15 +15,21 @@ export default defineStore('blog', () => {
   interface Blogs {
     [key: string]: Blog[]
   }
+  interface This {
+    $router: Router
+  }
   const blogs = reactive(<Blogs>{});
 
-  async function addBlog(content: String, category: string) {
+  async function addBlog(this: This, content: String, category: string) {
     try {
       const { data } = await axios.post('/blog', { content, category });
-      if (!(category in blogs)) {
-        blogs[category] = <Blog[]>[];
+      const { id, blog } = data;
+      if (!(id in blogs)) {
+        blogs[id] = <Blog[]>[];
       }
-      blogs[category].push(data);
+      blogs[id].push(blog);
+      blogs.all.push(blog);
+      this.$router.push('/');
     } catch {
       window.alert('Unable to Add Blog');
     }
@@ -34,7 +41,7 @@ export default defineStore('blog', () => {
       if (!(id in blogs)) {
         blogs[id] = <Blog[]>[];
       }
-      blogs[id].push(...data);
+      blogs[id] = data;
     } catch {
       window.alert('Unable to Fetch Blogs');
     }

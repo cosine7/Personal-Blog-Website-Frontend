@@ -11,7 +11,7 @@ blogStore.getBlogs(category);
 
 <template>
   <div class="wrapper">
-    <div v-for="blog in blogStore.blogs[category]"
+    <div class="blog" v-for="blog in blogStore.blogs[category]"
       :key="blog._id"
       v-html="marked.parse(blog.content)">
     </div>
@@ -20,8 +20,24 @@ blogStore.getBlogs(category);
 
 <style scoped lang="less">
 .wrapper {
-    flex: 1;
-    background-color: var(--content-background-color);
-    padding: 40px;
+  flex: 1;
+  background-color: var(--content-background-color);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.blog {
+  flex: none;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #C0C4CC;
+  margin: 10px 0;
+  padding: 20px;
+  box-sizing: border-box;
+  max-height: 300px;
+  cursor: pointer;
+  overflow: hidden;
 }
 </style>

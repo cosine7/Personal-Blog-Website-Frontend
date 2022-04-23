@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import axios from 'axios';
+import { useRouter } from 'vue-router';
 import useCategoryStore from '../stores/category';
 import useBlogStore from '../stores/blog';
 
@@ -9,6 +11,7 @@ const content = ref('');
 const showAddCategoryPopover = ref(false);
 const newCategory = ref('');
 const selectedCategory = ref('');
+const router = useRouter();
 
 function togglePopover() {
   showAddCategoryPopover.value = !showAddCategoryPopover.value;
@@ -19,6 +22,18 @@ function addCategory() {
   togglePopover();
   newCategory.value = '';
 }
+
+// async function addBlog() {
+//   try {
+//     await axios.post('/blog', {
+//       content: content.value,
+//       category: selectedCategory.value,
+//     });
+//     router.push('/');
+//   } catch {
+//     window.alert('Unable to Add Blog');
+//   }
+// }
 </script>
 
 <template>

@@ -12,6 +12,7 @@
     },
     "rules": {
         "import/extensions": "off",
-        "arrow-parens": ["error", "as-needed"]
+        "arrow-parens": ["error", "as-needed"],
+        "no-underscore-dangle": "off"
     }
 }

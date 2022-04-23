@@ -52,6 +52,7 @@ html, body, #app {
 #app {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 @font-face {

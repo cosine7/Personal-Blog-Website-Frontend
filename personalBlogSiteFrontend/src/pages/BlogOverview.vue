@@ -30,6 +30,7 @@ const route = useRoute();
 .wrapper {
   display: flex;
   flex: 1;
+  overflow: hidden;
 }
 
 .category {
