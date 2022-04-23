@@ -1,25 +1,14 @@
 <script setup lang="ts">
-import axios from 'axios';
+import useCategoryStore from '../stores/category';
 
-interface category {
-  name: String;
-}
-
-let categories: category[];
-
-try {
-  const { data } = await axios.get('/category');
-  categories = [{ name: 'All' }, ...data];
-} catch (error) {
-  console.log(error);
-}
+const categoryStore = useCategoryStore();
 </script>
 
 <template>
   <div class="wrapper">
     <div class="category">
       <h1>Category</h1>
-      <router-link v-for="category in categories"
+      <router-link v-for="category in categoryStore.items"
       class="category-item"
       :key="category.name"
       :to="`/blogs/${category.name}`">

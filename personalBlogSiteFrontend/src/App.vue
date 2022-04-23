@@ -56,7 +56,7 @@ html, body, #app {
 
 @font-face {
   font-family: "iconfont"; /* Project id  */
-  src: url('./assets/iconfont.ttf?t=1650573119313') format('truetype');
+  src: url('./assets/iconfont.ttf?t=1650686411637') format('truetype');
 }
 
 .iconfont {
@@ -68,6 +68,10 @@ html, body, #app {
 
 .icon-blog:before {
   content: "\e63a";
+}
+
+.icon-add:before {
+  content: "\e767";
 }
 
 .icon-password-hidden:before {
