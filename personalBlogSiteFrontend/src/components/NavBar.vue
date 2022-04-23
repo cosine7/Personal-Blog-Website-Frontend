@@ -11,6 +11,7 @@ const admin = useAdminStore();
     <router-link class="nav-link" to="/">Blogs</router-link>
     <router-link v-if="!admin.isLoggedIn" class="nav-link" to="/login">Login</router-link>
     <router-link v-if="admin.isLoggedIn" class="nav-link" to="/write">Write Blog</router-link>
+    <router-link v-if="admin.isLoggedIn" class="nav-link" to="/setting">Setting</router-link>
     <ThemeSwitchButtonVue />
   </nav>
   <Suspense>
