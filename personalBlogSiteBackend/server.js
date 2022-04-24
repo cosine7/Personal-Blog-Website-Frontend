@@ -8,18 +8,12 @@ import adminRouter from './routes/admin.route.js';
 import blogRouter from './routes/blog.route.js';
 import authenticateToken from './middlewares/authenticateToken.js';
 
-const app = express();
-app
+await Mongoose.connect(process.env.MONGODB_CONNECTION_LINK);
+express()
   .use(cookieParser())
   .use(bodyParser.json())
   .use(categoryRouter)
   .use(adminRouter)
   .use('/blog', authenticateToken)
-  .use('/blog', blogRouter);
-
-try {
-  await Mongoose.connect(process.env.MONGODB_CONNECTION_LINK);
-  app.listen(8080);
-} catch (error) {
-  console.log(error);
-}
+  .use('/blog', blogRouter)
+  .listen(8080);
