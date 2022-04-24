@@ -1,9 +1,6 @@
 import express from 'express';
 import Controller from '../controllers/blog.controller.js';
 
-const router = express.Router();
-
-router.post('/', Controller.addOne);
-router.get('/:category', Controller.getBlogs);
-
-export default router;
+export default express.Router()
+  .post('/', Controller.addOne)
+  .get('/:category', Controller.getBlogs);
