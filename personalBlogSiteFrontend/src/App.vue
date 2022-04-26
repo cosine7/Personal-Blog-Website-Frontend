@@ -11,7 +11,9 @@ setTimeout(() => {
 
 <template>
   <FunnyStart v-if="showFunnyStart" />
-  <NavBar />
+  <Suspense>
+    <NavBar />
+  </Suspense>
 </template>
 
 <style lang="less">

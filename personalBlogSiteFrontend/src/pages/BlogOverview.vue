@@ -3,6 +3,7 @@ import { useRoute } from 'vue-router';
 import useCategoryStore from '../stores/category';
 
 const categoryStore = useCategoryStore();
+await categoryStore.getCategory();
 const route = useRoute();
 </script>
 

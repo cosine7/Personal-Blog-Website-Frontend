@@ -3,6 +3,7 @@ import ThemeSwitchButtonVue from './ThemeSwitchButton.vue';
 import useAdminStore from '../stores/admin';
 
 const admin = useAdminStore();
+await admin.getLoginStatus();
 </script>
 
 <template>
@@ -40,11 +41,13 @@ const admin = useAdminStore();
     </router-link>
     <ThemeSwitchButtonVue />
   </nav>
-  <router-view v-slot="{ Component }">
-    <KeepAlive>
-      <component :is="Component" />
-    </KeepAlive>
-  </router-view>
+  <Suspense>
+    <router-view v-slot="{ Component }">
+      <KeepAlive>
+        <component :is="Component" />
+      </KeepAlive>
+    </router-view>
+  </Suspense>
 </template>
 
 <style scoped lang="less">
