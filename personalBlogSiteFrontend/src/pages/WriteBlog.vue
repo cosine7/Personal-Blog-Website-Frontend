@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import axios from 'axios';
-import { useRouter } from 'vue-router';
 import useCategoryStore from '../stores/category';
 import useBlogStore from '../stores/blog';
 
@@ -11,7 +9,6 @@ const content = ref('');
 const showAddCategoryPopover = ref(false);
 const newCategory = ref('');
 const selectedCategory = ref('');
-const router = useRouter();
 
 function togglePopover() {
   showAddCategoryPopover.value = !showAddCategoryPopover.value;
@@ -22,35 +19,38 @@ function addCategory() {
   togglePopover();
   newCategory.value = '';
 }
-
-// async function addBlog() {
-//   try {
-//     await axios.post('/blog', {
-//       content: content.value,
-//       category: selectedCategory.value,
-//     });
-//     router.push('/');
-//   } catch {
-//     window.alert('Unable to Add Blog');
-//   }
-// }
 </script>
 
 <template>
-  <form class="wrapper" @submit.prevent="blogStore.addBlog(content, selectedCategory)">
+  <form
+    class="wrapper"
+    @submit.prevent="blogStore.addBlog(content, selectedCategory)"
+  >
     <div class="option-wrapper">
-      <select required v-model="selectedCategory">
-        <option value="" disabled selected>Select Category</option>
-        <option v-for="item in categoryStore.items"
+      <select
+        required
+        v-model="selectedCategory"
+      >
+        <option
+          value=""
+          disabled
+          selected
+        >
+          Select Category
+        </option>
+        <option
+          v-for="item in categoryStore.items"
           :key="item._id"
-          :value="item.name">
-          {{item.name}}
+          :value="item.name"
+        >
+          {{ item.name }}
         </option>
       </select>
-      <button @click="togglePopover"
+      <button
+        @click="togglePopover"
         type="button"
-        class="iconfont icon-add btn-add">
-      </button>
+        class="iconfont icon-add btn-add"
+      />
       <button>Publish</button>
     </div>
     <div class="editor-wrapper">
@@ -58,18 +58,33 @@ function addCategory() {
     </div>
   </form>
   <Teleport to="body">
-      <Transition name="bounce">
-        <div v-show="showAddCategoryPopover" class="popover" @click="togglePopover">
-          <form @submit.prevent="addCategory" @click.stop>
-            <i @click="togglePopover" class="iconfont icon-close"></i>
-            <div>
-              <input v-model="newCategory" required id="category-name" type="text">
-              <label for="category-name">Category Name</label>
-            </div>
-            <button>Add</button>
-          </form>
-        </div>
-      </Transition>
+    <Transition name="bounce">
+      <div
+        v-show="showAddCategoryPopover"
+        class="popover"
+        @click="togglePopover"
+      >
+        <form
+          @submit.prevent="addCategory"
+          @click.stop
+        >
+          <i
+            @click="togglePopover"
+            class="iconfont icon-close"
+          />
+          <div>
+            <input
+              v-model="newCategory"
+              required
+              id="category-name"
+              type="text"
+            >
+            <label for="category-name">Category Name</label>
+          </div>
+          <button>Add</button>
+        </form>
+      </div>
+    </Transition>
   </Teleport>
 </template>
 

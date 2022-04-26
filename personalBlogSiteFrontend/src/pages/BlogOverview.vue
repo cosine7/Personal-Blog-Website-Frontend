@@ -10,17 +10,28 @@ const route = useRoute();
   <div class="wrapper">
     <div class="category">
       <h1>Category</h1>
-      <router-link class="category-item" key="all" to="/blogs/all">All</router-link>
-      <router-link v-for="category in categoryStore.items"
+      <router-link
+        class="category-item"
+        key="all"
+        to="/blogs/all"
+      >
+        All
+      </router-link>
+      <router-link
+        v-for="category in categoryStore.items"
         class="category-item"
         :key="category._id"
-        :to="`/blogs/${category._id}`">
-        {{category.name}}
+        :to="`/blogs/${category._id}`"
+      >
+        {{ category.name }}
       </router-link>
     </div>
     <router-view v-slot="{ Component }">
       <KeepAlive>
-        <component :key="route.path" :is="Component" />
+        <component
+          :key="route.path"
+          :is="Component"
+        />
       </KeepAlive>
     </router-view>
   </div>

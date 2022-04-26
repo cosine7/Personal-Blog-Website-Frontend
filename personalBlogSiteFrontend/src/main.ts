@@ -12,7 +12,7 @@ axios.defaults.baseURL = 'http://localhost:3000/api';
 const app = createApp(App);
 const pinia = createPinia();
 pinia.use(({ store }) => {
-  store.$router = markRaw(router);
+  store.router = markRaw(router);
 });
 app.use(pinia);
 await useAdminStore().getLoginStatus();

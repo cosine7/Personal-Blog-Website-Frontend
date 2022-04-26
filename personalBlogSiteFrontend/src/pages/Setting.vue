@@ -4,7 +4,12 @@
 <template>
   <div class="wrapper">
     <aside>
-      <router-link class="setting-item" to="/setting/admin">Account</router-link>
+      <router-link
+        class="setting-item"
+        to="/setting/admin"
+      >
+        Account
+      </router-link>
     </aside>
     <router-view v-slot="{ Component }">
       <KeepAlive>

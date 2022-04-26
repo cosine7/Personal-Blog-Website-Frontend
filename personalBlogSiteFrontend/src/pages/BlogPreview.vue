@@ -11,10 +11,12 @@ blogStore.getBlogs(category);
 
 <template>
   <div class="wrapper">
-    <div class="blog" v-for="blog in blogStore.blogs[category]"
+    <div
+      class="blog"
+      v-for="blog in blogStore.blogs[category]"
       :key="blog._id"
-      v-html="marked.parse(blog.content)">
-    </div>
+      v-html="marked.parse(blog.content)"
+    />
   </div>
 </template>
 

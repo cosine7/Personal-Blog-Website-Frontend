@@ -7,7 +7,9 @@ const admin = useAdminStore();
 
 <template>
   <div class="wrapper">
-    <button @click="admin.logout">Logout</button>
+    <button @click="admin.logout">
+      Logout
+    </button>
   </div>
 </template>
 

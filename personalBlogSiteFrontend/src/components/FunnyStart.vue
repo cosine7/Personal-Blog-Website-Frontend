@@ -1,8 +1,14 @@
 <template>
   <div class="wrapper">
     <h1>ChenXiao Liu</h1>
-    <h1 class="second">是兄弟！就一起来击剑！</h1>
-    <img class="third" src="../assets/jijian.gif" alt="击剑">
+    <h1 class="second">
+      是兄弟！就一起来击剑！
+    </h1>
+    <img
+      class="third"
+      src="../assets/jijian.gif"
+      alt="击剑"
+    >
   </div>
 </template>
 

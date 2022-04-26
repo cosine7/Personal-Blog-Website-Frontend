@@ -13,8 +13,14 @@ function switchTheme() {
 
 <template>
   <label for="theme-switch-button">
-    <input v-model="status" @change="switchTheme" type="checkbox" name="" id="theme-switch-button">
-    <span></span>
+    <input
+      v-model="status"
+      @change="switchTheme"
+      type="checkbox"
+      name=""
+      id="theme-switch-button"
+    >
+    <span />
   </label>
 </template>
 

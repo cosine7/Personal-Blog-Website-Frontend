@@ -4,7 +4,7 @@
         "es2021": true
     },
     "extends": [
-        "plugin:vue/essential",
+        "plugin:vue/vue3-strongly-recommended",
         "airbnb-base"
     ],
     "parserOptions": {
@@ -23,8 +23,6 @@
     "rules": {
         "import/no-unresolved": "off",
         "import/extensions": "off",
-        "vue/no-multiple-template-root": "off",
-        "vue/multi-word-component-names": "off",
         "no-alert": "off",
         "no-param-reassign": "off",
         "no-underscore-dangle": "off"

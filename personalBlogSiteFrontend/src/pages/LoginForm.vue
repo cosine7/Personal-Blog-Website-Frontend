@@ -17,16 +17,30 @@ const showPassword = ref(false);
     <form @submit.prevent="admin.login(username, password)">
       <h1>Login</h1>
       <div class="wrapper">
-        <input type="text" id="username" required v-model="username">
+        <input
+          type="text"
+          id="username"
+          required
+          v-model="username"
+        >
         <label for="username">Username</label>
       </div>
       <div class="wrapper">
-        <input :type="showPassword ? 'text' : 'password'" id="password" required v-model="password">
+        <input
+          :type="showPassword ? 'text' : 'password'"
+          id="password"
+          required
+          v-model="password"
+        >
         <label for="username">Password</label>
-        <i @click="showPassword = !showPassword"
-        :class="`iconfont icon-password-${showPassword ? 'show' : 'hidden'}`"></i>
+        <i
+          @click="showPassword = !showPassword"
+          :class="`iconfont icon-password-${showPassword ? 'show' : 'hidden'}`"
+        />
       </div>
-      <button :disabled="username === '' || password === ''">Login</button>
+      <button :disabled="username === '' || password === ''">
+        Login
+      </button>
     </form>
   </div>
 </template>
