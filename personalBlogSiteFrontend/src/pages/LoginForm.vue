@@ -32,7 +32,7 @@ const showPassword = ref(false);
           required
           v-model="password"
         >
-        <label for="username">Password</label>
+        <label for="password">Password</label>
         <i
           @click="showPassword = !showPassword"
           :class="`iconfont icon-password-${showPassword ? 'show' : 'hidden'}`"
