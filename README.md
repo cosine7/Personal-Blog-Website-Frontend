@@ -1,45 +1,16 @@
-# CSE330
+# Vue 3 + TypeScript + Vite
 
-Name: ChenXiao Liu
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-Student ID: 499688
+## Recommended IDE Setup
 
-GitHub Username: cosine7
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 
-# Project Idea
+## Type Support For `.vue` Imports in TS
 
-A personal tech blog website
+Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
 
-# Rubric (100 points)
+1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
+2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
-## Creating a rubric on time (5 points)
-
-Signed off by Pingchuan Huang
-
-## Languages/Frameworks used (40 points)
-
-- 10 - Learned/Used TypeScript as frontend programming language
-- 10 - Learned/Used Vue3 as frontend framework
-- 10 - Learned/Used express.js as backend framework
-- 10 - Learned/Used MongoDB database
-
-## Styling (5 points)
-
-- 5 - Learned/Used Less as css preprocessor
-
-## Functionality (35 points)
-
-- 10 - Only administrator could sign in/sign out. Guests could view blogs
-- 10 - Only administrator could write/delete/edit blogs
-- 10 - Database contains administrator and blogs; a blog should contain a title, content, creation time, and last edit time
-- 5 - Administrator could upload videos
-
-## Best Practices (5 points)
-
-- 3 - Code is readable and well formatted
-- 2 - All pages pass the html validator
-
-## Creative Portion (10 points)
-
-- 5 - website support markdown editor
-- 5 - website support dark mode
+You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
